@@ -34,7 +34,9 @@ class Ball:
         starts = [-2, -1, 1, 2]
 
         random.shuffle(starts)
-        """ вектор движения шарика"""
+
+        """ Вектор движения шарика"""
+
         self.x = starts[0]
         self.y = -2
 
@@ -43,7 +45,7 @@ class Ball:
         self.hit_bottom = False
 
 
-    """ обрабатываем касание платформы, для этого получаем 4 координаты шарика в переменной pos 
+    """ Обрабатываем касание платформы, для этого получаем 4 координаты шарика в переменной pos 
          (левая верхняя и правая нижняя точки)"""
 
     def hit_paddle(self, pos):
@@ -58,11 +60,15 @@ class Ball:
                 return True
 
         return False
-    """  движение шарика"""
+
+    """  Движение шарика"""
+
     def draw(self):
 
         self.canvas.move(self.id, self.x, self.y)
-        # запоминаем новые координаты шарика
+
+        """Новые координаты шарика"""
+
         pos = self.canvas.coords(self.id)
 
         if pos[1] <= 0:
@@ -86,6 +92,7 @@ class Ball:
         if pos[2] >= self.canvas_width:
 
             self.x = -2
+
     """Описываем класс Paddle, который отвечает за платформы"""
 class Paddle:
 
@@ -107,7 +114,7 @@ class Paddle:
 
         self.canvas_width = self.canvas.winfo_width()
 
-        """ задаём обработчик нажатий"""
+        """ Задаём обработчик нажатий"""
 
         self.canvas.bind_all('<KeyPress-Right>', self.turn_right)
 
@@ -124,9 +131,12 @@ class Paddle:
     def turn_left(self, event):
 
         self.x = -2
-        """игра начинается"""
+
+        """Игра начинается"""
     def start_game(self, event):
-        """ меняем значение переменной, которая отвечает за старт движения платформы"""
+
+        """ Меняем значение переменной, которая отвечает за старт движения платформы"""
+
         self.started = True
 
     def draw(self):
@@ -142,6 +152,7 @@ class Paddle:
         elif pos[2] >= self.canvas_width:
 
             self.x = 0
+
 """  Описываем класс Score, который отвечает за отображение счетов"""
 
 class Score:
@@ -153,13 +164,16 @@ class Score:
         self.canvas = canvas
 
         self.id = canvas.create_text(450, 10, text=self.score, font=('Courier', 15), fill=color)
-    """ обрабатываем касание платформы"""
+
+    """ Обрабатываем касание платформы"""
+
     def hit(self):
 
         self.score += 1
 
         self.canvas.itemconfig(self.id, text=self.score)
-""" создание объектов"""
+
+""" Создание объектов"""
 
 score = Score(canvas, 'green')
 paddle = Paddle(canvas, 'White')
@@ -172,7 +186,7 @@ while not ball.hit_bottom:
         paddle.draw()
 
 
-    """ обновляем  игровое поле"""
+    """ Обновляем  игровое поле"""
 
     tk.update_idletasks()
     tk.update()
