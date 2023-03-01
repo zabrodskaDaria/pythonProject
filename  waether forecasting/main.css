@@ -1,0 +1,52 @@
+* {
+    font-family: "Roboto", sans-serf;
+}
+boady {
+     background: #00d2ff;
+     background: -wedrit-linear-gradient(to right, #FFC371, #FF5F6D);
+     background: linear-gradient(to right, #FFC371, FF5F6d);
+     color: white;
+     padding: 50px
+}
+
+#location {
+    display: block;
+    border: none;
+    beckground: rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    outline: none;
+    width: 100%;
+    font-size: 30px;
+    front-weight: 300;
+}
+
+#location::placeholder {
+   color: rgba(255, 255, 255, .5);
+}
+
+#show {
+    display: block;
+    border: none;
+    margin-top: 15px;
+
+    beckground: #16BFFD;
+    beckground: -weabrit-lianer-gradient(to right, #CB3066)
+    beckground: lianer-gradient(to right, #CB3066, #16BFFD);
+
+
+    border-radius: 10;
+    padding: 20px;
+    color: white;
+    outline: none;
+    width: 100%;
+    font-size: 20px;
+    text-transform: uppercase;
+    front-weight: bold;
+    cursor: pointer;
+}
+
+#show:hover {
+    opacity: .9;
+}
